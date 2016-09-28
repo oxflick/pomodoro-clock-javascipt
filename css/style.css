@@ -1,0 +1,63 @@
+body {
+	font-family: 'Varela Round', sans-serif;
+	background-color: #C3BECE;
+	color: #fff;
+}
+
+body h1 {
+	text-align: center;
+}
+
+#alertmessage {
+	color: #B6426D;
+	font-size: 18px;
+	text-align: center;
+}
+
+.settime, .break {
+	width: 46.5%;
+    text-align: center;
+}
+
+.settime button, .break button {
+	background-color: transparent;
+	border-color: transparent;
+	color: #7B6F96;
+	font-size: 26px;
+}
+
+.settime {
+	float: left;
+}
+
+.break {
+	float: right;
+}
+
+.timer {
+	margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #7B6F96;
+    border-radius: 50%;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+#timergoing, #starttimer {
+    background-color: transparent;
+    border-color: transparent;
+    margin-top: 40px;
+}
+
+/* Float Clearfix ------------------ */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
