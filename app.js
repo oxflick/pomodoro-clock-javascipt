@@ -1,6 +1,6 @@
 var adder = document.getElementById('settimecount').innerHTML;
-var adderbreak = document.getElementById('setbreakcount').innerHTML;
-var alertmessage = document.getElementById('alertmessage');
+var adderBreak = document.getElementById('setbreakcount').innerHTML;
+var alertMessage = document.getElementById('alertmessage');
 
 // functions below add and deduct time after user clicks plus or minus
 
@@ -11,7 +11,7 @@ function addTime() {
 
 function deductTime() {
 	if ( adder == 0) {
-		return alertmessage.innerHTML = "You can only set 0 and/or more minutes";
+		return alertMessage.innerHTML = "You can only set 0 and/or more minutes";
 	}	else {
 		adder--;
 		document.getElementById('settimecount').innerHTML = adder;	
@@ -19,16 +19,16 @@ function deductTime() {
 }
 
 function addBreakTime() {
-	adderbreak++;
-	document.getElementById('setbreakcount').innerHTML = adderbreak;
+	adderBreak++;
+	document.getElementById('setbreakcount').innerHTML = adderBreak;
 }
 
 function deductBreakTime() {
-	if ( adderbreak == 0) {
-		return alertmessage.innerHTML = "You can only set 0 and/or more minutes";
+	if ( adderBreak == 0) {
+		return alertMessage.innerHTML = "You can only set 0 and/or more minutes";
 	}	else {
-		adderbreak--;
-		document.getElementById('setbreakcount').innerHTML = adderbreak;	
+		adderBreak--;
+		document.getElementById('setbreakcount').innerHTML = adderBreak;	
 	}
 }
 
@@ -43,7 +43,7 @@ var session = document.getElementById('state');
 // we will save the setTimout in this var and then will clearTimout when we click button stop
 var timerrunning;
 
-var TimeStr;
+var timeStr;
 var snd = new Audio("GiggleBoy.wav");
 var toggleBtn;
 
@@ -71,7 +71,7 @@ function goTimer() {
 	totalSeconds = adder*60;
 	UpdateTimer();
 	timerrunning = window.setTimeout("Tick()", 1000);
-	alertmessage.innerHTML = "Session";
+	alertMessage.innerHTML = "Session";
 }
 
 //each time Tick is called we want to set the timer to 1 second to make the timer continue
@@ -80,7 +80,7 @@ function Tick() {
 	if (totalSeconds <= 0 && alertmessage.innerHTML == "Session") {
 		startBreak();
 	} if (totalSeconds <= 0 && alertmessage.innerHTML == "Time for Break") {
-		alertmessage.innerHTML = "Time is Up";
+		alertMessage.innerHTML = "Time is Up";
 		return;
 	} else {
 		totalSeconds -= 1;
@@ -102,8 +102,8 @@ function UpdateTimer() {
 	var minutes = Math.floor(seconds / 60);
 	seconds -= minutes * (60);
 
-	TimeStr = ((days > 0) ? days + " days " : "") + LeadingZero(hours) + ":" + LeadingZero(minutes) + ":" + LeadingZero(seconds);
-	timer.innerHTML = TimeStr;
+	timeStr = ((days > 0) ? days + " days " : "") + LeadingZero(hours) + ":" + LeadingZero(minutes) + ":" + LeadingZero(seconds);
+	timer.innerHTML = timeStr;
 }
 
 //it will return the hours, minutes or seconds with a leading 0 if they only had one number before
@@ -115,9 +115,9 @@ function LeadingZero(Time) {
 // starting a break after main timer run out
 
 function startBreak() {
-	totalSeconds = adderbreak*60;
+	totalSeconds = adderBreak*60;
 	UpdateTimer();
-	alertmessage.innerHTML = "Time for Break";
+	alertMessage.innerHTML = "Time for Break";
     snd.play();
 }
 
